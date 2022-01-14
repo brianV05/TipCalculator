@@ -56,7 +56,7 @@ class SettingsViewController: UIViewController, UITextFieldDelegate {
         Tip3Modifier.text = ""
     }
     
-    // for the dark/ light mode
+    // forr the dark/ light mode
     @IBAction func switchDarkMode(_ sender: Any?   ) {
         //we are setting the value of bool to see if swith isOn, with a key
         defaults.set(DarkModeController.isOn, forKey:"darkMode")
