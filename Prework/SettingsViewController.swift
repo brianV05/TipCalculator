@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+class SettingsViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var Tip1Modifier: UITextField!
     @IBOutlet weak var Tip2Modifier: UITextField!
@@ -21,6 +21,11 @@ class SettingsViewController: UIViewController {
         saveTip.layer.cornerRadius = 12
         saveTip.layer.borderWidth = 1
         saveTip.layer.borderColor = UIColor.black.cgColor
+        
+        self.Tip3Modifier.delegate = self
+        self.Tip2Modifier.delegate = self
+        self.Tip1Modifier.delegate = self
+        
     }
     
     //when it runs, this will appear when excuting code
@@ -40,6 +45,7 @@ class SettingsViewController: UIViewController {
         let tip_2 = Int(Tip2Modifier.text!) ?? 0
         let tip_3 = Int(Tip3Modifier.text!) ?? 0
         
+        //set values, with keys
         defaults.set(tip_1,forKey:"tip_1")
         defaults.set(tip_2,forKey:"tip_2")
         defaults.set(tip_3,forKey:"tip_3")
@@ -48,11 +54,7 @@ class SettingsViewController: UIViewController {
         Tip1Modifier.text = ""
         Tip2Modifier.text = ""
         Tip3Modifier.text = ""
-        
     }
-    
-    
-    
     
     // for the dark/ light mode
     @IBAction func switchDarkMode(_ sender: Any?   ) {
@@ -69,5 +71,12 @@ class SettingsViewController: UIViewController {
         }
         
       }
+    
+  
+    
+    
+    
+    
 }
+
 

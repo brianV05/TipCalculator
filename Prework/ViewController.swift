@@ -25,13 +25,14 @@ class ViewController: UIViewController {
         self.title = "Tip Calculator"       //set the title in the nagivator bar
     }
     
-    var total:Double = 0 //global variable
+    var total:Double = 0.00 //global variable
     //convert this into a func, for other func to access it
     
     func calculateBill(){
         //get bill amount from the text input
         let bill = Double(billAmountTextField.text!) ?? 0
         
+        //creating first,second, third for stating title position
         let first:Double = Double(tipControl.titleForSegment(at: 0)!)!
         let second:Double = Double(tipControl.titleForSegment(at: 1)!)!
         let third:Double = Double(tipControl.titleForSegment(at: 2)!)!
@@ -41,8 +42,8 @@ class ViewController: UIViewController {
         
         let tip = bill * Double(tipPercentages[tipControl.selectedSegmentIndex])
         total = bill + tip
-        
-        //formatting the tio amount label
+    
+        //formatting the tip amount label
         tipAmountLabel.text = String(format: "$%.2f", tip)
         //formatting the total label
         totalLabel.text = String(format: "$%.2f", total)
